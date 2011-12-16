@@ -28,5 +28,7 @@ dep 'user-ssh' do
   meet {
     sudo "mkdir #{home}/.ssh", :as => var(:login)
     sudo "echo \"#{var :ssh_key}\" > #{home}/.ssh/authorized_keys", :as => var(:login)
+    sudo "chmod 700 #{home}/.ssh", :as => var(:login)
+    sudo "chmod 600 #{home}/.ssh/authorized_keys", :as => var(:login)
   }
 end
